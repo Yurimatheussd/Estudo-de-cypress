@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "cypress": "^10.0.3"
+  },
+  "name": "estudo-de-cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yurimatheussd/Estudo-de-cypress.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yurimatheussd/Estudo-de-cypress/issues"
+  },
+  "homepage": "https://github.com/Yurimatheussd/Estudo-de-cypress#readme",
+  "description": ""
+}
