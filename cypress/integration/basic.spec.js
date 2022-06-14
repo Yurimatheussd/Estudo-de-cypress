@@ -13,8 +13,8 @@ describe('Cypress basic', () => {
             .and('contain', 'Treinamento')
 
 
-        //TO DO ----> IMPRMIR O LOG NO CONSOLE
-        //TO DO ----> eSCREVER O LOG EM UM CAMPO TEXTO
+        //TODO ----> IMPRMIR O LOG NO CONSOLE
+        //TODO ----> ESCREVER O LOG EM UM CAMPO TEXTO
     })
 
 })

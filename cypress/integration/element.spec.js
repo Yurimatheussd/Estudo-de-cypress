@@ -90,4 +90,18 @@ describe('Cypress elements', () => {
 
 
     })
+    
+    it('Combo', ()=>{
+        cy.get('[data-test=dataEscolaridade]')
+        .select('1o grau incompleto')
+        .should('have.value','1grauincomp')
+    })
+
+        //TODO validar as opções do combo
+
+    it('ComboMultiplo', ()=>{
+        cy.get('[data-testid=dataEsportes]')
+        .select(['natacao','Corrida'])
+        //TODO  validar opções selecionadas do combo multiplo
+    })
 })
