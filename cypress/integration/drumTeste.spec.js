@@ -12,8 +12,11 @@ describe('Teste de bateria de neto', () => {
 
     it('Tocando musica', () => {
         cy.get('.a').type('a').then($el => {
+
+            // posso usar tanto debugger como cy.debug()
             expect($el).to.have.css('color', 'rgb(255, 255, 255)')
+            expect($el).to.have.class('pressed')
         })
-        //cy.debug()
+
     })
 })
