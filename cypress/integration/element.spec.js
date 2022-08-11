@@ -90,18 +90,32 @@ describe('Cypress elements', () => {
 
 
     })
-    
-    it('Combo', ()=>{
+
+    it.only('Combo', () => {
         cy.get('[data-test=dataEscolaridade]')
-        .select('1o grau incompleto')
-        .should('have.value','1grauincomp')
+            .select('1o grau incompleto')
+            .should('have.value', '1grauincomp')
+        //Para buscar os elementos de um combo eu preciso olhar pro HTML e ver alguma tag que traga essas opções...neste caso o option    
+        cy.get('[data-test=dataEscolaridade] option').should('have.length', '8')
+
+        //Aqui vou validar um elemento dentro das opções buscando pelo array...buscando uma collection
+        cy.get('[data-test=dataEscolaridade] option').then($arr => {
+            let values = []
+            $arr.each(function() {
+                values.push(this.innerHTML)
+                console.log(this)
+            })
+            expect(values).to.include.members(["Superior", "Mestrado"])
+            console.table(values)
+        })
+
     })
 
-        //TODO validar as opções do combo
+    //TODO validar as opções do combo
 
-    it('ComboMultiplo', ()=>{
+    it('ComboMultiplo', () => {
         cy.get('[data-testid=dataEsportes]')
-        .select(['natacao','Corrida'])
+            .select(['natacao', 'Corrida'])
         //TODO  validar opções selecionadas do combo multiplo
     })
 })
