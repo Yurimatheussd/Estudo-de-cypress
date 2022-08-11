@@ -91,7 +91,7 @@ describe('Cypress elements', () => {
 
     })
 
-    it.only('Combo', () => {
+    it('Combo', () => {
         cy.get('[data-test=dataEscolaridade]')
             .select('1o grau incompleto')
             .should('have.value', '1grauincomp')
@@ -101,7 +101,7 @@ describe('Cypress elements', () => {
         //Aqui vou validar um elemento dentro das opções buscando pelo array...buscando uma collection
         cy.get('[data-test=dataEscolaridade] option').then($arr => {
             let values = []
-            $arr.each(function() {
+            $arr.each(function () {
                 values.push(this.innerHTML)
                 console.log(this)
             })
@@ -111,11 +111,15 @@ describe('Cypress elements', () => {
 
     })
 
-    //TODO validar as opções do combo
 
-    it('ComboMultiplo', () => {
+
+    it.only('ComboMultiplo', () => {
         cy.get('[data-testid=dataEsportes]')
-            .select(['natacao', 'Corrida'])
-        //TODO  validar opções selecionadas do combo multiplo
+            .select(['natacao', 'Corrida', 'nada'])
+        cy.get('[data-testid=dataEsportes]').then($el => {
+            expect($el.val()).to.be.deep.equal(['natacao', 'Corrida', 'nada'])
+        })
+        cy.get('[data-testid=dataEsportes]').invoke('val').should('eql',['natacao', 'Corrida', 'nada'])
+        
     })
 })
